@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Map;
 
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -25,6 +26,7 @@ public class AppController {
 	}
 	
 	@PostMapping("/create")
+	@PreAuthorize("hasAnyRole('ROLE_ADMIN')")
 	ResponseEntity<Message> create(@RequestBody Message message){
 		log.info("Mensaje guardado: " + message.getText());
 		return ResponseEntity.ok().body(message);

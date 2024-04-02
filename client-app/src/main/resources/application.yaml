@@ -6,7 +6,7 @@ spring:
           client-app:
             provider: spring
             client-id: client-app
-            client-secret: 12345
+            client-secret: "{noop}12345"
             authorization-grant-type: authorization_code
             redirect-uri: "https://oauthdebugger.com/debug"
             scope:
