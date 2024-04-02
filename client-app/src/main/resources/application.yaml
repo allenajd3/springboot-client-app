@@ -1,0 +1,24 @@
+spring:
+  security:
+    oauth2:
+      client:
+        registration:
+          client-app:
+            provider: spring
+            client-id: client-app
+            client-secret: 12345
+            authorization-grant-type: authorization_code
+            redirect-uri: "https://oauthdebugger.com/debug"
+            scope:
+            - openid
+            - profile
+            - read
+            - write
+            client-name: client-app
+        provider:
+          spring:
+            issuer-uri: "http://localhost:9000"
+logging:
+  level:
+    org.springframework.security: trace          
+          
